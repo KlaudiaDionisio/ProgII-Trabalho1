@@ -73,7 +73,15 @@ public class AgendaSemanal {
                         InsCorda ins = new InsCorda();
                         ins.setNome(JOptionPane.showInputDialog("Digite o nome do instrumento: "));
                         ins.setIdadeMin(Integer.parseInt(JOptionPane.showInputDialog("Digite a idade mínima: ")));
-                        ins.setEletrico(Boolean.parseBoolean(JOptionPane.showInputDialog("É elétrico: (true/false)")));
+                        //ins.setEletrico(Boolean.parseBoolean(JOptionPane.showInputDialog("É elétrico: (true/false)")));
+                        int eletrico = (JOptionPane.showConfirmDialog(null,
+                                 "É elétrico: ", "Selecione: ",
+                                 JOptionPane.YES_NO_OPTION));
+                        if(eletrico == 1) 
+                            ins.setEletrico(true);
+                        else if(eletrico==0){
+                            ins.setEletrico(false);
+                        }
                         ins.setQtdeCordas(Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de cordas: ")));
                         ins.setPalheta(Boolean.parseBoolean(JOptionPane.showInputDialog("Precisa palheta? (true/false)")));
                         gi.cadastrar(ins);

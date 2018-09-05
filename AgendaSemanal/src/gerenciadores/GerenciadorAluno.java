@@ -17,6 +17,9 @@ public class GerenciadorAluno  implements IGerenciador{
     
     @Override
     public void cadastrar(Object a){
+        if(alunos == null){
+            alunos = new ArrayList();
+        }
         alunos.add((Aluno)a);
     }
 

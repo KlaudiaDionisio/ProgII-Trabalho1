@@ -18,6 +18,9 @@ public class GerenciadorInstrumento implements IGerenciador{
     
     @Override
     public void cadastrar(Object i){
+        if(instruments == null){
+           instruments =  new ArrayList();
+        }
         instruments.add((Instrumento)i);
     }
 }

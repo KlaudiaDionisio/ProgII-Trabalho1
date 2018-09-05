@@ -18,6 +18,9 @@ public class GerenciadorProfessor implements IGerenciador{
     
     @Override
     public void cadastrar(Object p){
+        if(professores == null){
+            professores = new ArrayList();
+        }
         professores.add((Professor)p);
     }
 }
