@@ -9,7 +9,9 @@ package gerenciadores;
  *
  * @author klaud
  */
-public interface IGerenciador {
+public interface IGerenciador<T> {
     
-    public void cadastrar(Object o);
+    public void cadastrar(T o) throws Exception;
+    
+    public String imprimirElementos() throws Exception;
 }

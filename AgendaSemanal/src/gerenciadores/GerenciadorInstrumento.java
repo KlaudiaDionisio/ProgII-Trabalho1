@@ -5,6 +5,7 @@
  */
 package gerenciadores;
 
+import instrumentos.InsCorda;
 import instrumentos.Instrumento;
 import java.util.ArrayList;
 
@@ -12,15 +13,39 @@ import java.util.ArrayList;
  *
  * @author klaud
  */
-public class GerenciadorInstrumento implements IGerenciador{
+public class GerenciadorInstrumento implements IGerenciador<Instrumento>{
     
     ArrayList<Instrumento> instruments;
     
     @Override
-    public void cadastrar(Object i){
+    public void cadastrar(Instrumento i) throws Exception{
         if(instruments == null){
            instruments =  new ArrayList();
         }
-        instruments.add((Instrumento)i);
+        if(!instruments.add(i)){
+            throw new Exception("Erro ao cadastrar instrumento!");
+        }
+        
+    }
+    
+    @Override 
+    public String imprimirElementos() throws Exception{
+        if(instruments == null){
+            throw new Exception("Lista vazia!");
+        }
+        int x = 0;
+        String msg = "Instrumentos cadastrados:\n\n";
+        for(Instrumento i : instruments) {
+            msg += x++ + " - Nome: " + i.getNome()+ " | Idade mínima: "+ i.getIdadeMin() + 
+                    " | Elétrico: " + (i.isEletrico()?"Sim":"Não") + 
+                    (i instanceof InsCorda?(" | Cordas: " + ((InsCorda)i).getQtdeCordas() + 
+                    " | Palheta:" + (((InsCorda)i).getPalheta()?"Sim":"Não")):"") + "\n"; // convert I to InsCorda 
+        }
+        return msg;
+        
+    }
+    
+    public ArrayList getList(){
+        return this.instruments;
     }
 }

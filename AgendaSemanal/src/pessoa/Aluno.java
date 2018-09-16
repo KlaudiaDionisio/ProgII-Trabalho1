@@ -5,6 +5,8 @@
  */
 package pessoa;
 
+import java.util.Objects;
+
 /**
  *
  * @author klaud
@@ -17,7 +19,30 @@ public class Aluno extends Pessoa{
         this.nivel = "";
     }
 
-    public Aluno(String nivel, String nome, int idade) {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Aluno other = (Aluno) obj;
+        if (!Objects.equals(this.nivel, other.nivel)) {
+            return false;
+        }
+        
+        if (this.getNivel().equals(other.getNivel()) && this.getNome().equals(other.getNome()) 
+                && this.getIdade() == (other.getIdade())) {
+            return true;
+        }
+        return false;
+    }
+
+    public Aluno(String nome, int idade, String nivel) {
         super(nome, idade);
         this.nivel = nivel;
     }

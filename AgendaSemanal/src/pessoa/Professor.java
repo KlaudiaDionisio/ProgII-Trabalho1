@@ -5,6 +5,8 @@
  */
 package pessoa;
 
+import java.util.Objects;
+
 /**
  *
  * @author klaud
@@ -17,9 +19,28 @@ public class Professor extends Pessoa{
         this.instIndicado = "";
     }
 
-    public Professor(String instIndicado, String nome, int idade) {
+    public Professor(String nome, int idade, String instIndicado) {
         super(nome, idade);
         this.instIndicado = instIndicado;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Professor other = (Professor) obj;
+        if (this.getNome().equals(other.getNome()) && this.getIdade() == other.getIdade() 
+                && this.getInstIndicado().equals(other.getInstIndicado())) {
+            return true;
+        }
+        return false;
     }
     
     public String getInstIndicado() {
