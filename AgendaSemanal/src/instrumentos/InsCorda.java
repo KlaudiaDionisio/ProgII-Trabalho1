@@ -19,7 +19,8 @@ public class InsCorda extends Instrumento{
         this.palheta = false;
     }
 
-    public InsCorda(String nome, int idadeMin, boolean eletrico, int qtdeCordas, boolean palheta) {
+    public InsCorda(String nome, int idadeMin, boolean eletrico, 
+                    int qtdeCordas, boolean palheta) {
         super(nome, idadeMin, eletrico);
         this.qtdeCordas = qtdeCordas;
         this.palheta = palheta;
@@ -41,7 +42,8 @@ public class InsCorda extends Instrumento{
             return false;
         }
         final InsCorda other = (InsCorda) obj;
-        if (this.getNome().equals(other.getNome()) && this.getIdadeMin() == other.getIdadeMin()
+        if (this.getNome().equals(other.getNome()) 
+                && this.getIdadeMin() == other.getIdadeMin()
                 && this.getQtdeCordas() == other.getQtdeCordas() 
                 && this.isEletrico() == other.isEletrico()
                 && this.getPalheta() == other.getPalheta()) {

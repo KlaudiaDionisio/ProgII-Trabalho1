@@ -52,7 +52,7 @@ public class AgendaSemanal {
             gAu.cadastrar(new Aula((Aluno) ga.getList().get(2), (Professor) gp.getList().get(2), (Instrumento) gi.getList().get(2), "10:00", 3));
 
         } catch (Exception ex) {
-            Logger.getLogger(AgendaSemanal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         int opcao;
         do {
@@ -153,7 +153,8 @@ public class AgendaSemanal {
                     }
                     break;
                 case 7: // cadastrar instrumento
-                    int tipo = Integer.parseInt(JOptionPane.showInputDialog("Qual tipo de instrumento deseja cadastrar?\n"
+                    int tipo = Integer.parseInt(
+                            JOptionPane.showInputDialog("Qual tipo de instrumento deseja cadastrar?\n"
                             + "1 - Instrumento de corda\n"
                             + "2 - Instrumento de tecla\n"));
                     if (tipo == 1) {
