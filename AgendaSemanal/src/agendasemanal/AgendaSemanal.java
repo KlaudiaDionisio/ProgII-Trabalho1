@@ -265,6 +265,7 @@ public class AgendaSemanal {
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(null, ex.getMessage());
                     }
+                    break;
                 case 12: // remover aula
                     try {
                         int remov = Integer.parseInt(JOptionPane.showInputDialog(gAu.imprimirElementos()));
